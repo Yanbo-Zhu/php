@@ -30,8 +30,11 @@ if (is_bool($var)) {
 } else {
     echo "Nein, es ist kein Boolean-Typ.";
 }
-    echo "var_dump: ";
+
+echo "var_dump: ";
+
 var_dump($var);
+
 ```
 
 Ausgabe:  

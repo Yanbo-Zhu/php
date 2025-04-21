@@ -514,10 +514,9 @@ Wenn Sie eine Einsendeaufgabe abgeben, dann schalten Sie bitte nur die _notice_
 Das Finden der Fehler wird als Debugging bezeichnet und kann auf verschiedene Arten erfolgen. Hier wollen wir eine einfache Art beschreiben. Eine sehr wichtige Einstellung für das Debugging erfolgt in der [Konfigurationsdatei php.ini](https://isp.eduloop.de/loop/Konfigurationsdatei_php.ini "Konfigurationsdatei php.ini") mit _display_errrors = On_, da nur dann Fehler, Warnungen und Hinweise in dem Browser ausgegeben werden.
 
 Aber selbst wenn das PHP-Programm keine Fehler ausgibt, macht es vielleicht nicht, was es machen soll. So ist es oftmals notwendig, die Inhalte einer Variablen oder eines Arrays zu ermitteln, um einen Fehler zu finden. Hier wird eine sehr einfache, hilfreiche Art des Debuggings benötigt, beispielsweise um festzustellen, welche Daten per POST übermittelt wurden.
+ 
+## 8.1 **Alle Daten eines Arrays ausgeben**: print_r() and var_dump()
 
----
-
-1 **Alle Daten eines Arrays ausgeben**  
 Zur einfachen Ausgabe aller Informationen einer Variablen gibt es die Funktionen [var_dump](http://php.net/manual/de/function.var-dump.php) und [print_r()](http://php.net/manual/de/function.print-r.php). Sie sind bei der Entwicklung eines Programms eine sehr praktische Alternative zum Befehl _echo_ und liefern eine strukturierte Ausgabe eines Arrays.
 
 ```php
