@@ -185,6 +185,26 @@ $pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
 ---
 
 
+### 2.1.1 禁用“模拟预处理语句（emulated prepared statements）
+
+```
+$pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+```
+
+是在配置 PDO（PHP Data Objects） 的行为，具体是 禁用“模拟预处理语句（emulated prepared statements）”，使用 数据库原生的预处理语句（native prepared statements）。
+- 默认情况下，PDO 可能并不会把你的 `prepare()` 语句直接发送给数据库。
+- 相反，它会在 PHP 层面模拟这个过程，把 SQL 语句和参数拼接好之后，一次性发送到数据库执行。
+- `false` 表示 **禁用模拟**，也就是说：
+    - SQL 的 `prepare()` 和 `execute()` 会真实地在数据库端处理。
+    - 参数绑定是在数据库里完成的，而不是由 PHP 来拼接。
+
+使用 `false` 的好处
+1. **更安全：** 防止 SQL 注入更彻底，尤其是涉及 `LIMIT`、`ORDER BY` 等敏感关键字。
+2. **更真实：** 可以测试数据库实际支持的预处理功能。
+3. **更稳定：** 一些数据库驱动（如 MySQL）在原生处理时会表现得更标准。
+
+
+
 ## 2.2 **Datenbank mit Password schützen!!!**  
 
 Nun müssen wir unbedingt unsere Datenbank **mit einem Password schützen**! Und natürlich sollte man einen Datenbankzugriff auf keinen Fall mit root-Rechten erlauben. Also müssen wir einen Datenbank-Nutzer (=Benutzerkonto) anlegen. Dieses Benutzerkonto wird verwendet, damit das PHP-Script mit dem Nutzernamen und dem Passwort auf die Datenbanktabelle zugreifen darf (aber nur auf die angegebene Tabelle und nicht auf die gesamte Datenbank!).
@@ -331,7 +351,7 @@ In Repository-Klassen finden "echte" Datenbankabfragen statt. Aber oftmals möch
 3 
 **Datei StudentModel.php (fertig)**
 
-```
+```php
 <?php declare(strict_types=1);
 class StudentModel
 {
@@ -388,6 +408,8 @@ class StudentRepository
         $stmt->execute();
 
         // Objekt $student erstellen (und von Hand befüllen)
+        // - 使用 `fetch()` 从结果集中获取**第一条记录**，作为一个关联数组返回（默认是 `PDO::FETCH_BOTH`）。
+        // - 如果没有记录返回，`$studentArray` 会是 `false`。
         $studentArray = $stmt->fetch();
 
         $student = new StudentModel();
