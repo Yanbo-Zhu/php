@@ -412,9 +412,13 @@ Beim Vergleich mit _`==`_ werden nur die Werte verglichen und es erfolgt eine 
 
 In PHP wird die automatische Umwandlung der Typen als [_Type Juggling"_](https://www.php.net/manual/de/language.types.type-juggling.php) _bezeichnet._
 
+
+---
+强制定义 数据类型 . 强制给出 . 但是这样 对于 schwache Typisierung  无效.  schwache Typisierung  也发生了 
+
 Man kann ab PHP 7 nun den PHP-Interpreter anweisen Datentypen strikt zu verwenden. Die schwache Typisierung wird aber an dieser Stelle nicht aufgehoben, wie folgendes Beispiel zeigt:
 
-```
+```php
 <?php declare(strict_types=1);
 $varString = (string) "111";  // dies ist ein String
 $varInt    = (int)     222;   // dies ist eine Integer-Zahl

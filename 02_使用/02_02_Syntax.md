@@ -13,7 +13,7 @@ Als einfaches Einbindungs-Beispiel für PHP-Code in HTML ein Hello-World:
 <?php echo "Hello world"; ?>
 
 
-# 1 Ausgabe von Text (Sting Interpolation)
+# 1 Ausgabe von Text (String Interpolation)
 
 _echo_ ist der meistgenutzte Ausgabebefehl in PHP. Auch _print_ (analog zu _echo_) und _printf_ (formatierte Ausgabe) sind möglich.
 
