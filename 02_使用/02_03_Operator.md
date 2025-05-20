@@ -3,6 +3,7 @@
 
 In diesem Unterkapitel erhalten Sie eine tabellarische Übersicht über die Operatoren. Vergleichen Sie diese Operatoren mit den Ihnen bekannten Operatoren aus der von Ihnen meistgenutzten Programmiersprache.
 
+
 ---
 
 **Allgemeine Operatoren**  
@@ -171,7 +172,7 @@ In diesem Unterkapitel sehen Sie zwei Beispiele für den Einsatz von Operatoren.
 ```php
 $number = 5;
 $location = "Seminar";
-$location .= "raum";
+$location .= "raum";  #  += 
 
 echo "$number Männer und ", --$number, " Frauen sitzen im $location.<br>";
 echo "Die Frauen sind im ", $number--, ". Semester<br>";
@@ -187,7 +188,7 @@ und 3 Männer sind im 6. Semester._
 ```php
 $a= 202;
 $b= "S";
-$b .= $a;
+$b .= $a;   # b  = s202
 
 var_dump($a);
 echo "<br>";
@@ -237,3 +238,7 @@ if (0 == $var)   {
 Hier wird die Bedingung durchlaufen, da eine implizite Umwandlung des Strings in eine Zahl vorgenommen wird, damit der Vergleich stattfinden kann. Der String erhält während der Umwandlung den Wert _NULL_ und somit ist die Bedingung erfüllt. Auch bei _`$var == 0`_ wird dem String die Variable zugewiesen. Wenn wir also in unserem String eine Zahl hätten, würde die Bedingung nicht durchlaufen!
 
 Zur Lösung des Problems sollte man nicht den Vergleichsoperator `==` verwenden, sondern`===`, welcher auch den Typ der Variablen vergleicht.
+
+
+
+

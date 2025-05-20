@@ -13,7 +13,7 @@ Als einfaches Einbindungs-Beispiel für PHP-Code in HTML ein Hello-World:
 <?php echo "Hello world"; ?>
 
 
-# 1 Ausgabe von Text (Sting Interpolation)
+# 1 Ausgabe von Text (String Interpolation) (重要 显示 )
 
 _echo_ ist der meistgenutzte Ausgabebefehl in PHP. Auch _print_ (analog zu _echo_) und _printf_ (formatierte Ausgabe) sind möglich.
 
@@ -304,6 +304,8 @@ zu b) Was genau in POST bzw. GET übertragen wird, können Sie immer mit der Fir
 5. 你就能看到提交的数据是否真的存在（即使是 `"0"`）以及 key/value 值。
 
 ## 4.2 **isset()**
+
+
 Während _empty()_ überprüft, ob eine Variable einen Wert enthält, wird mit _isset()_ überprüft, ob eine Variable überhaupt existiert.
 
 
@@ -544,7 +546,7 @@ Sowohl `print_r()` sls auch `var_dump()` eignen sich, um eine schnelle Über
 
 Wenn Sie PHP mit einem normalen Editor erstellen, dann ist es oftmals schwierig zu erkennen, ob aus einem Formular die Daten richtig an den Server übermittelt wurden. Hilfreich kann dann folgender Sourcecode sein, der auf jeder Seite eingebunden wird.
 
-```
+```php
 // Unter den Includes
 $debug="ja";
 session_start();

@@ -171,7 +171,7 @@ Das Zulassen von Sessions ohne Session-Cookies stellt ein Sicherheitsrisiko dar.
 
 Das Beispiel zeigt, wie mittels einer Session Informationen auf dem Server gespeichert und abgerufen werden können.
 
-```
+```php
 <?php
     session_start();
     echo "Der letzte Reload war am: ";

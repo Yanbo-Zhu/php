@@ -292,7 +292,10 @@ catch (Exception $error) {
     echo "Fehler: ".$error->getMessage();
 }
 ```
-  
+
+- `catch (Exception $error)`: Fängt eine Ausnahme ab und speichert sie in der Variablen `$error`.
+- `$error->getMessage()`: Gibt den Text der Fehlermeldung zurück,
+
   
 PHP ermöglicht Ihnen den Austausch der gesamten Fehlerbehandlung durch die Funktionen [set_error_handler](http://php.net/manual/de/function.set-error-handler.php) und [set_exception_handler](http://php.net/manual/de/function.set-exception-handler.php). So können Sie Fehler auf der Seite unterdrücken, aber im Hintergrund alles mitschreiben und darauf reagieren.
 
