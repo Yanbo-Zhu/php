@@ -141,7 +141,7 @@ Bisher waren Sie es gewohnt, Objekte zu erzeugen, bevor Methoden aus einer Klass
 Durch das Schlüsselwort **static** wird symbolisiert, dass es sich um eine statische Eigenschaft (siehe **Zeile 3**) oder eine statische Methode (siehe **Zeile 6**) handelt. Statisch bedeutet hierbei, dass etwas gleichbleibend ist. Wird diese Methode mehrmals innerhalb einer Klasse oder sogar innerhalb eines Programmes mit einer Vielzahl von Klassen benötigt, erleichtert die Nutzung von _static_ den schnellen wiederholten Aufruf.
 
 
-```
+```php
 class Hours {
     protected static $hours = 24;  // Statische Eigenschaft 
     // Statische Methode
@@ -152,13 +152,13 @@ class Hours {
 }
 ```
 
-In einer Klasse selbst werden statische Eigenschaften durch _**self::**_ aufgerufen (siehe **Zeile 8**), statt wie bisher durch `_$this->`_. Möchte man auf eine statische Eigenschaft außerhalb der aktuellen Klasse zugreifen, ersetzt man das `self` durch den Klassennamen, in dem sich die Ursprungsmethode befindet, in unserem Beispiel also _Hours::$hours_.
+In einer Klasse selbst werden statische Eigenschaften durch _**self::**_ aufgerufen (siehe **Zeile 8**), statt wie bisher durch `_$this->`_. Möchte man auf eine statische Eigenschaft außerhalb der aktuellen Klasse zugreifen, ersetzt man das `self` durch den Klassennamen, in dem sich die Ursprungsmethode befindet, in unserem Beispiel also `Hours::$hours`.
 
   
 Wenn man auf Methoden aus einer Basisklasse (siehe [UML-Diagramme verstehen](https://isp.eduloop.de/loop/UML-Diagramme_verstehen "UML-Diagramme verstehen")) zugreifen möchte, dann bietet sich die Nutzung des Schlüsselwortes _**parent::**_ an. Hierbei handelt es sich um eine professionelle Verwendung eines statischen Aufrufs. Befindet man sich in einer Unterklasse, kann man Methoden der Basisklasse so einfach einbinden, ohne immer wieder den vollen Namen der Klasse ausschreiben zu müssen. Das folgende Beispiel stellt dies in vereinfachter Form dar.
 
 
-```
+```php
 class Minutes extends Hours {     // Wir befinden und in der Unterklasse
 
     public function __construct()
@@ -252,7 +252,7 @@ Nun soll ein etwas komplexeres Beispiel gezeigt werden, in dem zwei Klassen von 
 
 **Basisklasse Person**
 
-```
+```php
 <?php declare(strict_types=1);
 class Person
 {
@@ -289,7 +289,7 @@ class Person
 
 **Klasse Professor**
 
-```
+```php
 <?php declare(strict_types=1);
 class Professor extends Person
 {
@@ -326,7 +326,7 @@ class Professor extends Person
 ```
 **Klasse Student**
 
-```
+```php
 <?php declare(strict_types=1);
 class Student extends Person
 {
@@ -350,7 +350,7 @@ Und in der Klasse _Professor_ wurde in den **Zeilen 32-35** auch die return-Zeil
 
 Verwenden lassen sich beide Klassen im folgenden Hauptprogramm.
 Hauptprogramm 
-```
+```php
 <?php declare(strict_types=1);
 require_once __DIR__.DIRECTORY_SEPARATOR.'Person.php';
 require_once __DIR__.DIRECTORY_SEPARATOR.'Professor.php';
@@ -891,7 +891,7 @@ Interfaces, sind noch "abstrakter". Interfaces dürfen keine Eigenschaften besit
 
 **Interface**
 
-```
+```php
 <?php declare(strict_types=1);
 Interface Db
 {
@@ -918,7 +918,7 @@ Folgende Dinge sind nun anders:
 **Unterklasse**  
 Mit _**implements**_ statt extends arbeiten. Ansonsten bleibt alles gleich.
 
-```
+```php
 <?php declare(strict_types=1);
 class DbMysql implements Db
 ...
