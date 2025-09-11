@@ -37,7 +37,7 @@ Die _[Klasse DateTime](https://www.php.net/manual/de/class.datetime.php)_ bietet
 
 Beginnen wir mit dem einfachen Beispiel der Ermittlung und Ausgabe des aktuellen Datums.
 
-```
+```php
 <?php
 $dt = new DateTime("now");
 
@@ -341,7 +341,7 @@ Also statt einer langen Erklärung auf dieser Seite schauen Sie einfach das Vide
 
 Die Lösung für das Autoloading-Problem ist im folgenden Sourcecode:
 
-```
+```php
 <?php
 function autoload($className)
 {
@@ -414,7 +414,7 @@ Hier ein Beispiel, wie die Implementation der Methoden in einer eigenen Klasse C
 - _**offsetSet()**_ wird aufgerufen, wenn man den Wert für _$content["tiltle"] = "Mein Koch-Blog"_ mit einem Setter setzen möchte.
 - _**offsetUnset()**_ wird aufgerufen, wenn man mit _unset_ einen Eintrag löschen möchte.
 
-```
+```php
 class Content implements ArrayAccess
 {
 
@@ -495,7 +495,7 @@ Die Funktion _function`($x, $y)`_ in **Zeile 16** ist eine **anonyme Funktion**,
 
 Code
 
-```
+```php
 <?php
 // normale Funktion
 function add($x, $y)
@@ -505,6 +505,7 @@ function add($x, $y)
 }
 // Aufruf der normalen Funktion
 add(3, 4);
+
 // anonyme Funktion definieren in dem man eine Variable zuweist
 $multiply = function($x, $y)
 {
@@ -611,7 +612,8 @@ Wenn man dies auch für die Klasse _Database_ im Ordner "Library" macht, dann ka
 
  Abb. 73: Instanzieren unter Verwendung des Namespaces
 
-  
+---
+
 Angenommen man greift normalerweise immer auf die Klassen im Namespace _Exams_ zu und nur selten auf andere Klassen in anderen Namespaces. Dann kann man mit _use Exams_ eine Abkürzung einführen. Somit muss man beim Instanzieren den Namespace nicht mehr mit angeben.
 
 [![Namspaces3.png](https://isp.eduloop.de/mediawiki/images/isp.eduloop.de/thumb/f/fb/Namspaces3.png/650px-Namspaces3.png)](https://isp.eduloop.de/mediawiki/images/isp.eduloop.de/f/fb/Namspaces3.png)
@@ -620,8 +622,19 @@ Angenommen man greift normalerweise immer auf die Klassen im Namespace _Exams_ z
 
   
 **Regeln**
-
 - In der Datei muss der Befehl _namespace_ immer am Anfang stehen, bevor die Klasse mit _class ..._ begonnen wird.
 - Ein Namespace besteht normalerweise nicht nur aus einem Namen, sondern bildet die Verzeichnisstruktur ab. Dabei wird zur Trennung immer der Backslash "\" verwendet. Also beispielsweise _Ordner\Unterordner_.
 - Ein Namespace sollte so heißen, wie der Ordner bzw. wenn es sich um eine verschachtelte Ordnerstruktur handelt, so wie der komplette Pfad zum Ordner.
 - Alle Klassen eines Unterordners haben somit normalerweise denselben Namespace.
+
+
+
+
+
+
+
+
+
+
+
+

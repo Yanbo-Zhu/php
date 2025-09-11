@@ -267,7 +267,7 @@ Mit  `$start` = 5000000_ und  `$end` = 6000000 erhalten wir beide Datensätze. P
 
 # 3 Datenbankverbindung professionell (repo model controller)
 
-Natürlich wollen wir die Datenbankverbindung in eine Klasse auslagern. Klassen, die für eine Verbindung mit einer Datenbank stehen, kann man gut mit dem Wort "Repository" kennzeichnen. Wir erstellen uns also eine Klasse _StudentRepository_.
+==Natürlich wollen wir die Datenbankverbindung in eine Klasse auslagern==. Klassen, die für eine Verbindung mit einer Datenbank stehen, kann man gut mit dem Wort "Repository" kennzeichnen. Wir erstellen uns also eine Klasse _StudentRepository_.
 
 Wenn wir im Unterkapitel [Klassen in Dateien auslagern und MVC-Prinzip](https://isp.eduloop.de/loop/Klassen_in_Dateien_auslagern_und_MVC-Prinzip "Klassen in Dateien auslagern und MVC-Prinzip") nachsehen, dann wurde dort das MVC-Prinzip erläutert. Dieses MVC-Prinzip wollen wir hier durch ein Repositoy ergänzen.
 
@@ -509,7 +509,7 @@ Zwei weitere Dinge sind bemerkenswert:
 6 
 **Datei index.php (fertig)**
 
-```
+```php
 <?php declare(strict_types=1);
 
 require_once __DIR__.DIRECTORY_SEPARATOR.'StudentRepository.php';
@@ -529,7 +529,7 @@ $pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
 
 
 // Datenbankabfrage über die Klasse StudentRepository vornehmen
-$studentRepository = new StudentRepository($pdo);
+$studentRepository = new StudentRepository($pdo);  // Dependency injection 
 $student = $studentRepository->fetchStudentByMatNr($start, $end);
 
 // 1. Ausgabe
@@ -560,7 +560,8 @@ echo $student[1]->firstName . " studiert " . $student[1]->course;
 ```
 
 
-Die Ausgabe auf dem Browser: [![Studentmodell3.png](https://isp.eduloop.de/mediawiki/images/isp.eduloop.de/c/ce/Studentmodell3.png)](https://isp.eduloop.de/mediawiki/images/isp.eduloop.de/c/ce/Studentmodell3.png)
+Die Ausgabe auf dem Browser:
+[![Studentmodell3.png](https://isp.eduloop.de/mediawiki/images/isp.eduloop.de/c/ce/Studentmodell3.png)](https://isp.eduloop.de/mediawiki/images/isp.eduloop.de/c/ce/Studentmodell3.png)
 
 Sie haben hier mehrere Dinge gelernt.
 
@@ -589,7 +590,7 @@ Beispiel
 
 **Datei index.php (nur erste Zeilen)**
 
-```
+```php
 <?php declare(strict_types=1);
 require_once __DIR__.DIRECTORY_SEPARATOR.'StudentRepository.php';
 require_once __DIR__.DIRECTORY_SEPARATOR.'StudentModel.php';
@@ -609,9 +610,11 @@ try {
 }
 ...
 ```
-Ausgabe  
-_Verbindung zur Datenbank funktioniert nicht_
 
+Ausgabe  
+```
+Verbindung zur Datenbank funktioniert nicht
+```
 - Mit einem try-catch-Block (**Zeilen 11, 16, 19**) werden Fehlermeldungen abgefangen, sodass es nicht mehr zur Ausgabe des Passwortes kommt.
 - Mit _try_ wird der nachfolgende Block ausprobiert und wenn es zu einem Fehler kommt, dann wird der _catch_-Block ausgeführt. Somit wird dann mit _echo_ der String ausgegeben und in **Zeile 18** wird der PHP-Befehl _**exit**_ verwendet, damit die weitere Programmausführung abgebrochen wird, weil es ja ohne Datenbankverbindung keinen Sinn macht und nur zu anderen Fehlermeldungen führen würde.
 
